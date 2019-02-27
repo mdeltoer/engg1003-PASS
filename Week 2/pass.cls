@@ -132,7 +132,7 @@
 % set margins
 \reversemarginpar
  \newgeometry{
- left=32mm,
+ left=20mm,
  right=20mm,
  top=18mm,
  headsep = 6mm,
