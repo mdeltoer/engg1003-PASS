@@ -12,21 +12,21 @@
 
 \begin{document}
 \maketitle
-\vspace{14pt}
+\vspace{8pt}
 Welcome to PASS (Peer Assisted Study Sessions) for ENGG1003. PASS is essentially a regularly scheduled group study session led by a student who has previously achieved excellent results in the course. Sessions are free, voluntary, and do not require you to enrol beforehand. For ENGG1003, there are 3 repeat sessions per week; you are invited to show up to as many or as little as you like. The times are listed below:
 \begin{center}
-\large{\textbf{
+\textbf{
 \begin{tabular}{ccc}
 Monday & 14-15 & ES238 \\
 Wednesday & 12-13 & ES238 \\
 Thursday & 10-11 & MCLG42 \\
 \end{tabular}
-}}
+}
 \end{center}
 
 Each session, I will be bringing my own worksheets that cover topics from the previous week's lectures. You are also invited to bring your own questions and assignments to the sessions. It is \textbf{highly recommended that you bring your own laptops to the sessions} to enhance your own learning experience.
 
-Leaders are not here to act like your tutors, we are here to facilitate the group discussion and provide help when necessary. Group work and asking other students is highly encouraged before directly asking me questions. I will of course do my best to give you different explanations and new perspectives on programming concepts, and I will happily give any tips/insights that on anything uni related.  
+Leaders are not here to act like your tutors, we are here to facilitate the group discussion and provide help when necessary. Group work and asking other students is highly encouraged before directly asking me questions. I will of course do my best to give you different explanations and new perspectives on programming concepts, and I will happily give any tips/insights on anything uni related.  
 
 I will be uploading the weekly worksheets on the \textit{Online PASS} blackboard site. If you haven't joined yet, just ask me or another student how to sign up and access them.
 
@@ -34,14 +34,29 @@ I hope to continue seeing you throughout the semester. Don't be afraid to ask fo
 
 \section*{Fundamentals of C}
 \begin{enumerate}[resume]
-\item What is the absolute bare minimum structure of a C program?\\[20pt]
-\item How and where are \textit{header files} included in a C program?\\[20pt]
-\item Which \textit{header file} is required for the \texttt{printf} and \texttt{scanf} \textit{functions} to work?\\[20pt]
-\textcolor{red}{\item declaring variables}
+\item What is the absolute bare minimum structure of a C program?\\
 
-\textcolor{red}{\item variable types?}
+\item \textit{Header files} are files that contain \textit{function} and \textit{macro definitions} so they can be used within your program.
+\\How and where are \textit{header files} included in a C program?\\
+\item Which \textit{header file} is required for the \texttt{printf} and \texttt{scanf} \textit{functions} to work?\\
 
-\textcolor{red}{\item scanf and printf fundamentals}
+\item Data, i.e. numbers, are stored in something called a \textit{variable}. Before a C program can use a \textit{variable}, it must be \textit{declared} so that it is allocated its own memory location and unique name.\\Use the following descriptions to declare your own variables:
+\begin{enumerate}
+	\begin{tabularx}{\textwidth}{XX}
+		\item An integer called \texttt{i} &
+		\item A float called \texttt{mass} \textit{initialised} to the value 6.21\\[6pt]
+	\end{tabularx}
+	\end{enumerate}
+There are many other different types of variables and it is up to the programmer (spoiler:that's you), to decide which is most appropriate for the situation.\\
+
+\item The \texttt{scanf} and \texttt{printf} \textit{functions} are the most simple ways of interfacing with a basic C program through \textit{standard input} through the keyboard and \textit{standard output} through the console respectively.\\
+Using the \texttt{scanf} and/or the \texttt{printf} \textit{functions}, complete the following tasks:
+	\begin{enumerate}
+		\item Read an integer and store it in \texttt{i}.\\
+		\item Read a float and store it in \texttt{mass}.\\
+		\item Display the text \texttt{"The current mass is: "} followed by the value of \texttt{mass}.\\
+		\item Display the text \texttt{"Please enter the current mass: "} followed by reading in a float and storing it in \texttt{mass}.\\
+	\end{enumerate}
 \end{enumerate}
 
 \section*{Arithmetic in C}
@@ -49,7 +64,7 @@ I hope to continue seeing you throughout the semester. Don't be afraid to ask fo
 \item Match the following mathematical operations with their C counterparts.
 	\begin{center}
 	\begin{tabular}{|l|c|} \hline
-	Operation & C Symbol \\ \hline
+	\textbf{Operation} & \textbf{C Symbol} \\ \hline
 	Addition & \texttt{-}\\
 	Subtraction & \texttt{--}\\
 	Multiplication & \texttt{+}\\
@@ -68,10 +83,10 @@ Notes:
 	\end{itemize}
 	\begin{enumerate}
 	\begin{tabularx}{\textwidth}{XX}
-        \item $\displaystyle\frac{ab}{23}+12$ &
-        \item $\displaystyle\frac{10+ab}{abc}+c$ \\
-        \item $12 - \displaystyle\frac{32}{a}b+c$ &
-        \item $\displaystyle\frac{a^2+b^2}{12c}$ \\
+        \item $\dfrac{ab}{23} + 12$ &
+        \item $\dfrac{10+ab}{abc} + 3b$ \\
+        \item $9a - \left(\dfrac{32}{a-3}b\right) - 4c$ &
+        \item $\left(\dfrac{a^2+b^2}{46a}\right)c$ \\
 	\end{tabularx}
 	\end{enumerate}
 	
@@ -80,23 +95,18 @@ Notes:
 \end{enumerate}
 
 \section*{Practice Programming}
-\subsection*{Hello World}
-\begin{enumerate}[resume]
-\item Write code for a C program to display the text "Hello World" to the console window.
-\end{enumerate}
-
-\subsection*{Algorithms}
 Some things to consider for the following questions:
 	\begin{itemize}
 	\item How can I take an \textit{input} from the user? How can I display information to the user?
 	\item How many \textit{variables} will I need? What \textit{data type} should each of them be?
 	\item How could I use \textit{intrinsic documentation} (Lab 1) to make my code easier to read?
 	\item Where should I be using \textit{comments} to further explain my code?
-	\item What mathematical formulas will I need?\\[12pt]
+	\item What mathematical formulas (if any) will I need?\\[8pt]
 	\end{itemize}
 \begin{enumerate}[resume]
 \item Write code for a C program that will calculate the perimeter and area of a rectangle, with two side lengths provided by user, and print the results to the console.\\[8pt]
 
+\item Write code for a C program that prompts the user to enter 3 different integers as input, then print those numbers back to the user in reverse order.
 \end{enumerate}
 
 \end{document}
