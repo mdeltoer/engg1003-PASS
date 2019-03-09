@@ -1,0 +1,191 @@
+\documentclass{pass}
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{soul}
+\usepackage{enumitem}
+\usepackage{tabularx}
+
+\title{ENGG1003 - PASS Session 2}
+\author{Mitchell Deltoer}
+\date{Week 3}
+
+\begin{document}
+\begin{minipage}[H]{0.6\textwidth}
+  \maketitle
+\end{minipage}
+\hfill
+\begin{minipage}[H]{0.35\textwidth}
+\textbf{
+\begin{tabular}{ccc}
+Monday & 14-15 & ES238 \\
+Wednesday & 12-13 & ES238 \\
+Thursday & 10-11 & MCLG42 \\
+\end{tabular}
+}
+\end{minipage}
+
+%\maketitle
+%\begin{center}
+%\textbf{
+%\begin{tabular}{ccc}
+%Monday & 14-15 & ES238 \\
+%Wednesday & 12-13 & ES238 \\
+%Thursday & 10-11 & MCLG42 \\
+%\end{tabular}
+%}
+%\end{center}
+
+\section*{More Arithmetic in C}
+\begin{enumerate}[resume]
+\item What is the meaning of the \textit{modulus} operation in C?
+
+\textcolor{red}{\item Evaluate the following C expressions. You can confirm your answers by printing the result on your computer. \\
+\textbf{HINT:} Be careful of integer division.
+	\begin{enumerate}
+	    \begin{tabularx}{\textwidth}{XX}
+	    \item \texttt{12 / 5;} &
+	    \item \texttt{12 \% 5;} \\
+	    \item \texttt{12.0 / 5;} &
+	    \item \texttt{12 \% 2;} \\
+	    \item \texttt{5 / 12;} &
+	    \item \texttt{5 \% 12;} \\
+	    \end{tabularx}
+	\end{enumerate}
+}
+
+\item Match the following relational and boolean operations with their C counterparts.
+	\begin{center}
+	\begin{tabular}{|l|c|} \hline
+	\textbf{Operator} & \textbf{Meaning} \\ \hline
+	\texttt{<} & Greater than \\
+	\texttt{>} & Equal to \\
+	\texttt{<=} & Or \\
+	\texttt{>=} & Not equal to \\
+	\texttt{==} & Not \\
+	\texttt{!} & And \\
+	\texttt{!=} & Less than \\
+	\texttt{||} & Greater than or equal to \\
+	\texttt{\&\&} & Less than or equal to \\ \hline
+	\end{tabular}
+	\end{center}
+
+\item Complete the following table for \textbf{OR} and \textbf{AND} logic. \\
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+x & y & x OR y & x AND y \\ \hline
+1 (True)  & 1 (True) & & \\ \hline 
+1 (True)  & 0 (False) &	& \\ \hline
+0 (False)  & 1 (True) &	& \\ \hline
+0 (False)  & 0 (False) & & \\ \hline
+\end{tabular}
+\end{center}
+
+\item What is the value of \texttt{int ans} after the following relational operations? Note the following variable initialisations. \\
+\textbf{HINT:} The result of a relational operation is 0 or 1. C treats 0 as Boolean FALSE and any non-zero as TRUE. \\
+	\begin{center}
+	\texttt{int x = 0, y = 23, z = -2;} \texttt{float num = 1.50;} \\
+	\end{center}
+	\begin{enumerate}
+	    \begin{tabularx}{\textwidth}{XX}
+	    \item \texttt{ans = y > x;} &
+	    \item \texttt{ans = !(z > x);} \\
+	    \item \texttt{ans = x <= z+2;} &
+	    \item \texttt{ans = x || y;} \\
+	    \item \texttt{ans = x \&\& 4*z;} &
+	    \item \texttt{ans = (num < \ z) \&\& x;} \\
+	    \item \texttt{ans = (num < = z) == x;} &
+	    \item \texttt{ans = !z;} \\
+	    \item \texttt{ans = !x \&\& y;} &
+	    \item \texttt{ans = !(x <= y) || (z*y <= z-y);} \\
+	    \end{tabularx}
+	\end{enumerate}
+
+\end{enumerate}
+\pagebreak
+\section*{IF statements}
+\texttt{IF} statements allow us to choose between multiple different code segments, depending one or more \textit{conditions}.
+\begin{enumerate}[resume]
+\item Given the following code listing, what will be displayed for the user for each set of \texttt{x} and \texttt{y}?
+	\begin{enumerate}
+		\begin{tabularx}{\textwidth}{XX}
+		\item \texttt{int x = 0, y = 12;} &
+		\item \texttt{int x = 32, y = 0;} \\
+		\item \texttt{int x = -23, y = 12;} &
+		\item \texttt{int x = 1, y = 10;} \\
+		\end{tabularx}
+	\end{enumerate}
+\end{enumerate}
+\begin{lstlisting}[style=CStyle]
+if(x <= 0){
+	printf("Flood levels reached.\n");
+} else if(!y && x){
+	printf("Flood gates obstructed!\n");
+} else{
+	printf("Error - system check required.\n");
+}
+\end{lstlisting}
+
+\textcolor{red}{\section*{WHILE loops}
+Loops are an important construct in C that allow us to execute code segments multiple times or even indefinitely. It is important to make sure that the loop condition is updated each loop or you could get stuck in an endless loop.
+\begin{enumerate}[resume]
+\item Examine the following code listing and determine what will be the output. Have a go first before you confirm the result on your computer.
+\end{enumerate}
+}
+\begin{lstlisting}[style=CStyle]
+int x = 3, y = 7;
+while(x < y){
+	printf("%d", x);
+	x++;
+}
+\end{lstlisting}
+
+%\section*{Data Types}
+%\begin{enumerate}[resume]
+%\item In the context of C, what is a \textit{literal}?
+%
+%\item By default, what data type is an integer literal stored as? What about a floating point literal?
+%
+%\item How is a \textit{type-cast} performed in C, and what does it do? 
+%
+%\textcolor{red}{write some literals and variables with different (none) suffixes and casting}
+%
+%\textcolor{red}{evaluate variable expressions with casting}
+%
+%\item \textit{Format specifiers} (\texttt{\%d, \%f} etc.) control how \texttt{printf} and \texttt{scanf} converts between numerical (or textual) data and ASCII characters that to be displayed or input. For a full list of format specifiers, see here\footnote{\url{https://www.gnu.org/software/libc/manual/html_node/Table-of-Input-Conversions.html\#Table-of-Input-Conversions}}
+%\end{enumerate}
+%
+%\section*{Random Numbers}
+%\begin{enumerate}[resume]
+%\item 
+%\textcolor{red}{Sometimes we need random numbers. To do that we can use the \texttt{rand()} function, which is included in the \texttt{stdlib.h} library. If you have a computer, navigate to \url{https://www.tutorialspoint.com/c_standard_library/c_function_rand.htm} and \textit{try} to have a read of the documentation.}
+%\end{enumerate}
+
+\section*{Practice Programming}
+%Some things to consider for the following questions:
+%	\begin{itemize}
+%	\item How can I take an \textit{input} from the user? How can I display information to the user?
+%	\item How many \textit{variables} will I need? What \textit{data type} should each of them be?
+%	\item How could I use \textit{intrinsic documentation} (Lab 1) to make my code easier to read?
+%	\item Where should I be using \textit{comments} to further explain my code?
+%	\item What mathematical formulas (if any) will I need?\\
+%	\end{itemize}
+\begin{enumerate}[resume]
+\item Write code for a C program that will calculate and display the length of the hypotenuse of a right-angled triangle, given the other two side lengths as input. (\textbf{HINT:} I hope you have seen Pythagoras' Theorem before). \\
+
+\item Write code for a program that takes in two numbers from the user, then displays the largest of the two numbers. \\
+
+\item Write code for a program that takes in a number from the user. The program should then tell the user if that number is between 0 and 10. \\
+
+\item Write code to add all the integers up until the number the user has input, then display the result. \\
+
+\item Write code that reads in a dollar amount (integer) and breaks it into smallest possible number of bank notes (\$100, \$50, \$20, \$10, \$5) and coins (\$2, \$1). The results show be (neatly) displayed to the user. \\
+
+\item Write code for a program that takes in a student’s mark for a course they completed last semester. The program should then display if the user got a HD, D, C, P or F for that course. \\
+
+
+
+\end{enumerate}
+
+\end{document}
