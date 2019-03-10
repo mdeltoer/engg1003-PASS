@@ -38,9 +38,9 @@ Thursday & 10-11 & MCLG42 \\
 
 \section*{More Arithmetic in C}
 \begin{enumerate}[resume]
-\item What is the meaning of the \textit{modulus} operation in C?
+\item What is the meaning of the \textit{modulus} operation in C? \\
 
-\textcolor{red}{\item Evaluate the following C expressions. You can confirm your answers by printing the result on your computer. \\
+\item Evaluate the following C expressions. You can confirm your answers by printing the result on your computer. \\
 \textbf{HINT:} Be careful of integer division.
 	\begin{enumerate}
 	    \begin{tabularx}{\textwidth}{XX}
@@ -49,10 +49,9 @@ Thursday & 10-11 & MCLG42 \\
 	    \item \texttt{12.0 / 5;} &
 	    \item \texttt{12 \% 2;} \\
 	    \item \texttt{5 / 12;} &
-	    \item \texttt{5 \% 12;} \\
+	    \item \texttt{5 \% 12;} \\ \\
 	    \end{tabularx}
 	\end{enumerate}
-}
 
 \item Match the following relational and boolean operations with their C counterparts.
 	\begin{center}
@@ -69,6 +68,7 @@ Thursday & 10-11 & MCLG42 \\
 	\texttt{\&\&} & Less than or equal to \\ \hline
 	\end{tabular}
 	\end{center}
+\vspace{8pt}
 
 \item Complete the following table for \textbf{OR} and \textbf{AND} logic. \\
 \begin{center}
@@ -81,6 +81,7 @@ x & y & x OR y & x AND y \\ \hline
 0 (False)  & 0 (False) & & \\ \hline
 \end{tabular}
 \end{center}
+\vspace{8pt}
 
 \item What is the value of \texttt{int ans} after the following relational operations? Note the following variable initialisations. \\
 \textbf{HINT:} The result of a relational operation is 0 or 1. C treats 0 as Boolean FALSE and any non-zero as TRUE. \\
@@ -101,7 +102,6 @@ x & y & x OR y & x AND y \\ \hline
 	    \item \texttt{ans = !(x <= y) || (z*y <= z-y);} \\
 	    \end{tabularx}
 	\end{enumerate}
-
 \end{enumerate}
 \pagebreak
 \section*{IF statements}
@@ -127,12 +127,12 @@ if(x <= 0){
 }
 \end{lstlisting}
 
-\textcolor{red}{\section*{WHILE loops}
+\section*{WHILE loops}
 Loops are an important construct in C that allow us to execute code segments multiple times or even indefinitely. It is important to make sure that the loop condition is updated each loop or you could get stuck in an endless loop.
 \begin{enumerate}[resume]
 \item Examine the following code listing and determine what will be the output. Have a go first before you confirm the result on your computer.
 \end{enumerate}
-}
+
 \begin{lstlisting}[style=CStyle]
 int x = 3, y = 7;
 while(x < y){
@@ -174,11 +174,11 @@ while(x < y){
 \begin{enumerate}[resume]
 \item Write code for a C program that will calculate and display the length of the hypotenuse of a right-angled triangle, given the other two side lengths as input. (\textbf{HINT:} I hope you have seen Pythagoras' Theorem before). \\
 
-\item Write code for a program that takes in two numbers from the user, then displays the largest of the two numbers. \\
-
 \item Write code for a program that takes in a number from the user. The program should then tell the user if that number is between 0 and 10. \\
 
 \item Write code to add all the integers up until the number the user has input, then display the result. \\
+
+\item Write code for a program that takes in two numbers from the user, then displays the largest of the two numbers. \\
 
 \item Write code that reads in a dollar amount (integer) and breaks it into smallest possible number of bank notes (\$100, \$50, \$20, \$10, \$5) and coins (\$2, \$1). The results show be (neatly) displayed to the user. \\
 
