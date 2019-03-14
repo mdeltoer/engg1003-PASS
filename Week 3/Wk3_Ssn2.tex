@@ -44,12 +44,12 @@ Thursday & 10-11 & MCLG42 \\
 \textbf{HINT:} Be careful of integer division.
 	\begin{enumerate}
 	    \begin{tabularx}{\textwidth}{XX}
-	    \item \texttt{12 / 5;} &
-	    \item \texttt{12 \% 5;} \\
-	    \item \texttt{12.0 / 5;} &
-	    \item \texttt{12 \% 2;} \\
-	    \item \texttt{5 / 12;} &
-	    \item \texttt{5 \% 12;} \\ \\
+	    \item \texttt{13 / 5;} &
+	    \item \texttt{13 \% 5;} \\
+	    \item \texttt{13.0 / 5;} &
+	    \item \texttt{13 \% 2;} \\
+	    \item \texttt{5 / 13;} &
+	    \item \texttt{5 \% 13;} \\ \\
 	    \end{tabularx}
 	\end{enumerate}
 
@@ -84,7 +84,7 @@ x & y & x OR y & x AND y \\ \hline
 \vspace{8pt}
 
 \item What is the value of \texttt{int ans} after the following relational operations? Note the following variable initialisations. \\
-\textbf{HINT:} The result of a relational operation is 0 or 1. C treats 0 as Boolean FALSE and any non-zero as TRUE. \\
+\textbf{HINT:} C treats 0 as Boolean FALSE and any non-zero as TRUE. The result of a relational operation is 0 or 1.  \\
 	\begin{center}
 	\texttt{int x = 0, y = 23, z = -2;} \texttt{float num = 1.50;} \\
 	\end{center}
@@ -92,9 +92,9 @@ x & y & x OR y & x AND y \\ \hline
 	    \begin{tabularx}{\textwidth}{XX}
 	    \item \texttt{ans = y > x;} &
 	    \item \texttt{ans = !(z > x);} \\
-	    \item \texttt{ans = x <= z+2;} &
+	    \item \texttt{ans = x <= (z+2);} &
 	    \item \texttt{ans = x || y;} \\
-	    \item \texttt{ans = x \&\& 4*z;} &
+	    \item \texttt{ans = x \&\& (4*z);} &
 	    \item \texttt{ans = (num < \ z) \&\& x;} \\
 	    \item \texttt{ans = (num < = z) == x;} &
 	    \item \texttt{ans = !z;} \\
