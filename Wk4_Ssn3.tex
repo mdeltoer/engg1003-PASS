@@ -1,0 +1,118 @@
+\documentclass{pass}
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{soul}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{amsmath,amsfonts,amssymb} % For nice maths
+
+\title{ENGG1003 - PASS Session 3}
+\author{Mitchell Deltoer}
+\date{Week 4}
+
+\begin{document}
+\begin{minipage}[H]{0.6\textwidth}
+  \maketitle
+\end{minipage}
+\hfill
+\begin{minipage}[H]{0.35\textwidth}
+\textbf{
+\begin{tabular}{ccc}
+Monday & 14-15 & ES238 \\
+Wednesday & 12-13 & ES238 \\
+Thursday & 10-11 & MCLG42 \\
+\end{tabular}
+}
+\end{minipage}
+
+\section*{FOR Loops}
+The general structure of a \texttt{for} loop in C is:
+\begin{lstlisting}[style=CStyle]
+	for( initialisation ; condition ; increment ){
+		// some code a set amount of times
+	}
+\end{lstlisting}
+The \texttt{initialisation} expression is only done once before the first loop, the \texttt{condition} is tested before each loop iteration and the \texttt{increment} expression is executed after each loop iteration. The code block associated with the \texttt{for} loop will continually execute as long as the \texttt{condition} is true before each iteration.
+\begin{enumerate}[resume]
+\item Examine the following code listings and determine the output to the user. How many iterations are performed?
+
+	\begin{enumerate}
+	\item
+	\begin{lstlisting}[style=CStyle]
+	for(int i = 0; i < 10; i++){
+		printf("%d",i);
+	}\end{lstlisting}
+	
+	\item 
+	\begin{lstlisting}[style=CStyle]
+	for(int i = 1; i <= 10; i++){
+		printf("%d",2*i);
+	}\end{lstlisting}
+	\end{enumerate}
+	
+\end{enumerate}
+
+
+\section*{BREAK and CONTINUE}
+Two more tools to include in flow control are the \texttt{break} and \texttt{continue} statements. When a \texttt{break} statement is encountered inside a loop, the loop is immediately terminated. In contrast, a \texttt{continue} statement  forces the next iteration of the loop to take place immediately.
+
+It may not be all that often that it is absolutely necessary that you need to include either one of these, but in some cases it can make your code simpler.
+
+\section*{DO-WHILE Loops - Optional}
+A \texttt{do-while} loop in C is a subtle variation on the \texttt{while} loop structure. The general structure of a \texttt{do-while} loop in C is:
+\begin{lstlisting}[style=CStyle]
+	do{
+		// some code here at least once
+	} while( condition );
+\end{lstlisting}
+The code block is always unconditionally executed first, and then before each subsequent loop iteration the \texttt{condition} is tested. Then the code block continually executes as long as the \texttt{condition} is true before each iteration.
+
+It is basically the same as a \texttt{while} loop except it executes at least once. A \texttt{do-while} is never absolutely necessary, and you can code the same behaviour with just a \texttt{while} loop, but it can make the intent of your code easier to see if you understand the structure.
+
+\pagebreak
+
+\section*{Practice Programming}
+A summary of some quick tips:
+\begin{itemize}
+\item \texttt{if} ... \texttt{else if} ... \texttt{else} statements are used to choose between several different options or cases.
+\item A \texttt{for} loop will execute a block of code a set number of times.
+\item A \texttt{while} loop can be used to execute a block of code either indefinitely, or it can be used like a \texttt{for} loop.\\[12pt]
+\end{itemize}
+
+\begin{enumerate}[resume]
+\item Write a C program that will display the first \texttt{n} integers squared ($n^2$) and their total sum, where \texttt{n} is the user's input. \\[12pt]
+
+\item Write a C program that will display all of the integers in reverse from \texttt{n} to zero, where \texttt{n} is the user's input. \\[12pt]
+
+\item Write a C program that will continuously add numbers that the user enters. When the user enters 0, the final sum and the average should be displayed. \\[12pt]
+
+\item A prime number is a whole number greater than 1 that is only divisible by 1 and itself. \\[12pt]
+	\begin{enumerate}
+	\item Write a C program that will determine whether a given number is a prime number or not. \\[12pt]
+	\item Write a C program that will print all prime numbers between 1 and \texttt{n}, where \texttt{n} is the user's input. \\[12pt]
+	\end{enumerate}
+	
+\item The exponential function can be evaluated using the following series expansion:
+\begin{equation*}
+\exp(x) = e^x = \displaystyle\sum^\infty_{k=0}\dfrac{x^k}{k!} = 1 + \dfrac{x}{1!} + \dfrac{x^2}{2!} + \dfrac{x^3}{3!} + ...
+\end{equation*}
+
+where $x$ is the input, $k$ is the current term of the series being evaluated and $!$ denotes the \textit{factorial} function. \\[12pt]
+
+	\begin{enumerate}
+	\item Write a C program that will compute the \textit{factorial} of the user's input. \\[12pt]
+	\item Write a C program that will compute the series for any value $x$ which the user inputs. The series should terminate and print the sum to the user when either:
+\begin{itemize}
+\item The absolute value of the current term is less than $10^{-6}$.
+\item 50 iterations have been computed.
+\end{itemize}
+	
+	\end{enumerate}
+
+
+
+
+\end{enumerate}
+
+\end{document}
