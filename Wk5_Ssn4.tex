@@ -1,0 +1,120 @@
+\documentclass{pass}
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{soul}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{amsmath,amsfonts,amssymb} % For nice maths
+
+\title{ENGG1003 - PASS Session 4}
+\author{Mitchell Deltoer}
+\date{Week 5}
+
+\begin{document}
+\begin{minipage}[H]{0.6\textwidth}
+  \maketitle
+\end{minipage}
+\hfill
+\begin{minipage}[H]{0.35\textwidth}
+\textbf{
+\begin{tabular}{ccc}
+Monday & 14-15 & ES238 \\
+Wednesday & 12-13 & ES238 \\
+Thursday & 10-11 & MCLG42 \\
+\end{tabular}
+}
+\end{minipage}
+
+\section*{Switch, Case, Break - Optional}
+A \textit{switch statement} is another kind of \textit{flow control} that allows a variable to be tested for equality against a list of values. Each value is called a \textit{case}, and the variable or expression being switched on is checked for each \textit{case}. The standard syntax of a \textit{switch statement} is
+\begin{lstlisting}[style=CStyle]
+switch(expression){
+	// you can have any number of case statements
+	case constant1:
+		statement(s);
+		break; // optional
+	case constant2:
+		statement(s);
+		break; // optional
+	default: // optional (this is executed if no other case is true)
+	statement(s);
+}
+\end{lstlisting}
+If the \texttt{break} statements are omitted, the program will continue executing each \textit{case} that follows the first valid check.
+
+A \textit{switch statement} can be used in place of an \texttt{else if} chain for allowing a program to choose between several different options, especially where there is a large number of options to choose from. They are never absolutely necessary, it's your choice whether you include them in your program over an \texttt{else if} chain.
+                                                                                                                                                                                       
+\section*{Functions in C}
+A \textit{function} is a block of code which can be called multiple times. Functions have a function name, an optional \textit{return value} (output) and optionally one or more \textit{arguments} (inputs). The standard structure of a \textit{function prototype} is
+\begin{lstlisting}[style=CStyle]
+	return_type function_name(arguments);
+\end{lstlisting}
+where \texttt{return\textunderscore type} is the data type of the \textit{return value} (\texttt{void} for no output), and  \texttt{arguments} is either \texttt{void} for no arguments or a list of arguments in the form 
+\begin{lstlisting}[style=CStyle]
+	arg1_type arg1_name, arg2_type arg2_name, ... , argN_type argN_name
+\end{lstlisting}
+where \texttt{arg\textunderscore type} is the data type of each argument and \texttt{arg\textunderscore name} is the name of each variable within the function.
+
+Like variables, functions need to be defined before they are used. The \textit{function prototype} should be included before the \texttt{main} function. The \textit{function definition} (where the actual function code goes) should be included after the \texttt{main} function.
+
+Functions are very useful when it comes to breaking down a problem into several sub-problems, and when a particular feature of your code is very cumbersome to read (more than 10-20 lines).
+
+\section*{Variable Scope and Persistence}
+Whenever a variable is declared within a \textit{code block} (between any pair of curly braces), i.e. in a \texttt{while} loop, \texttt{if} code block or a \textit{function}, the variable's ``existence" is limited to this code block. Where a variable exists is called a variable's \textit{scope}. 
+
+Both the value and the definition of a variable are lost when the program is outside of a variable's scope. However, the value of a variable can be retained if it is declared as \texttt{static} but their \textit{scope} is still limited.
+
+These concepts are critical for programming in C, especially when it comes to writing \textit{functions}.
+
+\pagebreak
+
+\section*{Practice Programming}
+Some things to consider when using functions within your program:
+\begin{itemize}
+\item What \textit{arguments} (inputs) are there to the function? What are their data types?
+\item What is the \textit{return value} (output) of the function? What is its data type?
+\item Have I remembered to (correctly) include the \textit{function prototype} and the \textit{function definition}? \\[12pt]
+\end{itemize}
+
+%A summary of some quick tips:
+%\begin{itemize}
+%\item \texttt{if} ... \texttt{else if} ... \texttt{else} statements are used to choose between several different options or cases.
+%\item A \texttt{for} loop will execute a block of code a set number of times.
+%\item A \texttt{while} loop can be used to execute a block of code either indefinitely, or it can be used like a \texttt{for} loop.\\[12pt]
+%\end{itemize}
+
+\begin{enumerate}[resume]
+\item Write a C program that reads two numbers and returns the addition of those two numbers. The addition should be computed within a function called \texttt{addition}, and the main function should then print the result to the console window. \\[12pt]
+
+\item Write a C program that reads the lengths of two sides of a right-angled triangle and returns the hypotenuse of the triangle. The calculation should be done within a function called \texttt{pythagoras}, and the main function should then print the result to the console window. \\[12pt]
+
+\item Write a C program that reads two numbers and returns the larger of those two numbers. The calculation should be computed within a function called \texttt{maximum}, and the main function should then print the result to the console window. \\[12pt]
+
+\item Write a C program that reads an integer and returns the factorial of that number. The factorial should be computed within a function called \texttt{factorial}, and the main function should then print the result to the console window. \\[12pt]
+
+\item Write a C program that displays a block-letter of the first letter of your name using \texttt{*} characters. It should be printed through a function called \texttt{print\textunderscore letter}. Use the main function to call this function to view your result. The following shows a few examples of sample output (however, feel free to get creative).
+\begin{lstlisting}[style=CStyle]
+**    **     ******     ******      *****     **  **
+***  ***       **         **       **         **  **
+********       **         **       **         ******
+** ** **       **         **       **         **  **
+** ** **     ******       **        *****     **  **
+\end{lstlisting}
+\item
+	\begin{enumerate}
+	\item Write a C program that reads in a temperature in Celsius and returns the temperature in Fahrenheit. The conversion should be computed within a function called \texttt{temp\textunderscore convert}, and the main function should then print the result to the console window. \\[6pt]
+	\boxed{F = \dfrac{9}{5}C + 32,  \hspace*{2cm} C = \dfrac{5}{9}(F-32)}
+	\item Extend the previous program's functionality to instead read in a temperature in \textbf{either} Celsius or Fahrenheit, and also a character which will determine the units of their temperature input. The function should convert from C to F if their input is `C' or from F to C if the input is `F'. The main function should then print the result to the console window. \\[6pt]
+	\end{enumerate}
+	
+\item Try going back to any tasks done in previous weeks and see how you can modify them to include functions where appropriate.
+	
+
+
+
+
+
+\end{enumerate}
+
+\end{document}
