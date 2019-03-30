@@ -74,7 +74,7 @@ Some things to consider when using functions within your program:
 \begin{itemize}
 \item What \textit{arguments} (inputs) are there to the function? What are their data types?
 \item What is the \textit{return value} (output) of the function? What is its data type?
-\item Have I remembered to (correctly) include the \textit{function prototype} and the \textit{function definition}? \\[12pt]
+\item Have I remembered to (correctly) include the \textit{function prototype} and the \textit{function definition}?
 \end{itemize}
 
 %A summary of some quick tips:
@@ -84,16 +84,24 @@ Some things to consider when using functions within your program:
 %\item A \texttt{while} loop can be used to execute a block of code either indefinitely, or it can be used like a \texttt{for} loop.\\[12pt]
 %\end{itemize}
 
-\begin{enumerate}[resume]
-\item Write a C program that reads two numbers and returns the addition of those two numbers. The addition should be computed within a function called \texttt{addition}, and the main function should then print the result to the console window. \\[12pt]
+\begin{task}{Addition function}{}
+Write a C program that reads two numbers and returns their sum. The addition should be done within a function called \texttt{addition}, and the main function should then print the result to the console window.
+\end{task}
 
-\item Write a C program that reads the lengths of two sides of a right-angled triangle and returns the hypotenuse of the triangle. The calculation should be done within a function called \texttt{pythagoras}, and the main function should then print the result to the console window. \\[12pt]
+\begin{task}{Pythagoras function}{}
+Write a C program that reads the lengths of two sides of a right-angled triangle and returns the hypotenuse of the triangle. The calculation should be done within a function called \texttt{pythagoras}, and the main function should then print the result to the console window.
+\end{task}
 
-\item Write a C program that reads two numbers and returns the larger of those two numbers. The calculation should be computed within a function called \texttt{maximum}, and the main function should then print the result to the console window. \\[12pt]
+\begin{task}{Maximum function}{}
+Write a C program that reads two numbers and returns the largest number. The calculation should be done in a function called \texttt{maximum}, and the main function should then print the result to the console window.
+\end{task}
 
-\item Write a C program that reads an integer and returns the factorial of that number. The factorial should be computed within a function called \texttt{factorial}, and the main function should then print the result to the console window. \\[12pt]
+\begin{task}{Factorial function}{}
+Write a C program that reads an integer and returns the factorial of that number. The factorial should be computed within a function called \texttt{factorial}, and the main function should then print the result to the console window.
+\end{task}
 
-\item Write a C program that displays a block-letter of the first letter of your name using \texttt{*} characters. It should be printed through a function called \texttt{print\textunderscore letter}. Use the main function to call this function to view your result. The following shows a few examples of sample output (however, feel free to get creative).
+\begin{task}{Print function}{}
+Write a C program that displays a block-letter of the first letter of your name using \texttt{*} characters. It should be printed through a function called \texttt{print\textunderscore letter}. Use the main function to call this function to view your result. The following shows a few examples of sample output (however, feel free to get creative).
 \begin{lstlisting}[style=CStyle]
 **    **     ******     ******      *****     **  **
 ***  ***       **         **       **         **  **
@@ -101,20 +109,18 @@ Some things to consider when using functions within your program:
 ** ** **       **         **       **         **  **
 ** ** **     ******       **        *****     **  **
 \end{lstlisting}
-\item
+\end{task}
+
+\begin{task}{Temperature conversion function}{}
 	\begin{enumerate}
 	\item Write a C program that reads in a temperature in Celsius and returns the temperature in Fahrenheit. The conversion should be computed within a function called \texttt{temp\textunderscore convert}, and the main function should then print the result to the console window. \\[6pt]
 	\boxed{F = \dfrac{9}{5}C + 32,  \hspace*{2cm} C = \dfrac{5}{9}(F-32)}
-	\item Extend the previous program's functionality to instead read in a temperature in \textbf{either} Celsius or Fahrenheit, and also a character which will determine the units of their temperature input. The function should convert from C to F if their input is `C' or from F to C if the input is `F'. The main function should then print the result to the console window. \\[6pt]
+	\item Extend the previous program's functionality to instead read in a temperature in \textbf{either} Celsius or Fahrenheit, and also a character which will determine the units of their temperature input. The function should convert from C to F if their input is `C' or from F to C if the input is `F'. The main function should then print the result to the console window.
 	\end{enumerate}
-	
-\item Try going back to any tasks done in previous weeks and see how you can modify them to include functions where appropriate.
-	
+\end{task}
 
-
-
-
-
-\end{enumerate}
+%\begin{task}{Modify previous labs}{}
+%Try going back to any tasks done in previous weeks and see how you can modify them to include functions where appropriate.
+%\end{task}
 
 \end{document}
