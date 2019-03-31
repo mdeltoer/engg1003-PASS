@@ -1,0 +1,123 @@
+\documentclass{pass}
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{soul}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{amsmath,amsfonts,amssymb} % For nice maths
+
+\title{ENGG1003 - PASS Session 5}
+\author{Mitchell Deltoer}
+\date{Week 6}
+
+\begin{document}
+\begin{minipage}[H]{0.6\textwidth}
+  \maketitle
+\end{minipage}
+\hfill
+\begin{minipage}[H]{0.35\textwidth}
+\textbf{
+\begin{tabular}{ccc}
+Monday & 14-15 & ES238 \\
+Wednesday & 12-13 & ES238 \\
+Thursday & 10-11 & MCLG42 \\
+\end{tabular}
+}
+\end{minipage}
+
+\section*{Arrays}
+Arrays can be thought of as a structure that stores a fixed-size collection of variables of the same data type. Instead of declaring individual variables, you declare one array variable and each individual variable is identified with its \textit{index}. \textbf{Array indexes begin at zero}, i.e. the first element in an array would be \texttt{array[0]}.
+
+
+An array is declared as follows
+\begin{lstlisting}[style=CStyle]
+	data_type array_name[array_size];
+\end{lstlisting}
+\texttt{data\_type} can be any valid C data type, \texttt{array\_size} needs to be an integer greater than zero and the \texttt{array\_name} follows the same rules as any other C variable name.
+
+The following example shows an example of initialising an array in one line
+\begin{lstlisting}[style=CStyle]
+	float array[5] = {1000.0, 2.0, 3.4, 7.0, 50.0};
+\end{lstlisting}
+The number of values between the braces \{ \} cannot be larger than the number of elements between the square brackets [ ]. If you omit the size of the array, an array just big enough to hold the initialization is created. Single values of an array can also be initialised individually using
+\begin{lstlisting}[style=CStyle]
+	array[3] = 7.0;
+\end{lstlisting}
+
+\section*{Arrays and Functions (Intro to pointers)}
+A \textit{pointer} is a variable whose value is the address of another variable. The syntax for declaring a pointer variable is
+\begin{lstlisting}[style=CStyle]
+	data_type *var_ptr;
+\end{lstlisting}
+where \texttt{data\_type} is the base data type which the pointer is pointing at and \texttt{var\_ptr} is the name of the pointer variable.
+
+You have already seen \textit{pointers} before. Using a variable name with an ampersand (\texttt{\&}) before it accesses the address of the variable rather than the value that it holds. So an example pointer declaration would look something like
+\begin{lstlisting}[style=CStyle]
+	int var;					// declaring a integer variable
+	int *var_ptr = &var;	// initialising a pointer-to-int with the address of var
+\end{lstlisting}
+
+This relates to arrays in that \textbf{the name of an array without an index is a \textit{pointer} to the first value in the array}. That is, the following two \texttt{printf} statements of code are equivalent:
+\begin{lstlisting}[style=CStyle]
+	int array[2];		// declaring an array of int, length 2
+	printf("This is the address of array[0]: %lu\n", array);
+	printf("This is the address of array[0]: %lu\n", &array[0]);
+\end{lstlisting}
+
+When using arrays in functions, a pointer to the first value in the array and the array size are both required as separate arguments (inputs) to the function. Because \textbf{the function is using the address of the original array, when values in the array are changed in the function they are also updated in the main function}.
+
+\begin{lstlisting}[style=CStyle]
+	// either one of these is a valid function prototype
+	void example_function(int *array_name, int array_size)	
+	void example_function(int array_name[], int array_size)
+\end{lstlisting}
+
+
+\pagebreak
+
+\section*{Practice Programming}
+Some things to consider when using functions within your program:
+\begin{itemize}
+\item What \textit{arguments} (inputs) are there to the function? What are their data types?
+\item What is the \textit{return value} (output) of the function? What is its data type?
+\item Have I remembered to (correctly) include the \textit{function prototype} and the \textit{function definition}?
+\end{itemize}
+
+\begin{task}{Set array values to zero}{}
+	\begin{enumerate}
+	\item Write a C program to set all the values within an array to zero. Print the entire array to confirm your result.\\[6pt]
+	\item Modify the previous program to instead use a \textit{function} to set all the values to zero. The array should still be declared from within the main function.
+	\end{enumerate}
+\end{task}
+
+\begin{task}{Array copying}{}
+	\begin{enumerate}
+	\item Write a C program that copies the values of one array into another. Print both arrays to confirm your result.\\[6pt]
+	\item Modify the previous program to instead use a \textit{function} to do the copying. The arrays should still be declared from within the main function.
+	\end{enumerate}
+\end{task}
+
+\begin{task}{\texttt{scanf} values in to array}{}
+	\begin{enumerate}
+	\item Write a C program to read in \textbf{up to 10} values into an array using standard input (\texttt{scanf)}. Print the entire array to confirm your result.\\
+\textbf{Hint:} First read in an integer which is the number of variables they want to read into the array.	
+	\\[6pt]
+	\item Modify the previous program to instead use a \textit{function} to read in the values. The array should still be declared from within the main function.
+	\end{enumerate}
+\end{task}
+
+\begin{task}{Array arithmetic}{}
+	\begin{enumerate}
+	\item Write a C program to calculate the average of all the values in an array.\\[6pt]
+	\item Modify the previous program to instead use a \textit{function} to perform the calculation and return the result to the main. The array should still be declared from within the main function.
+	\end{enumerate}
+\end{task}
+
+\begin{task}{Challenge: Duplicate counting}{}
+Write a C program that reads in up to 10 numbers into an array. The program should count the number of duplicate elements within that array and print the result. Example test data and expected output is given below:\\[12pt]
+\texttt{Test Data: [2,1,1,2,1,3,4]\\}
+\texttt{Total number of duplicate elements found in the array is: 3 }
+\end{task}
+
+\end{document}
