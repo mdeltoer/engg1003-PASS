@@ -1,0 +1,80 @@
+\documentclass{pass}
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{soul}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{amsmath,amsfonts,amssymb} % For nice maths
+
+\title{ENGG1003 - PASS Session 7}
+\author{Mitchell Deltoer}
+\date{Week 8}
+
+\begin{document}
+\begin{minipage}[H]{0.6\textwidth}
+  \maketitle
+\end{minipage}
+\hfill
+\begin{minipage}[H]{0.35\textwidth}
+\textbf{
+\begin{tabular}{ccc}
+Monday & 14-15 & ES238 \\
+Wednesday & 12-13 & ES238 \\
+Thursday & 10-11 & MCLG42 \\
+\end{tabular}
+}
+\end{minipage}
+
+\section*{Pointers}
+A \textit{pointer} is a variable whose value is the address of another variable. The syntax for declaring a pointer variable is
+\begin{lstlisting}[style=CStyle]
+	data_type *var_ptr;
+\end{lstlisting}
+where \texttt{data\_type} is the base data type which the pointer is pointing at and \texttt{var\_ptr} is the name of the pointer variable.
+
+You have already seen \textit{pointers} before. Using a variable name with an ampersand (\texttt{\&}) before it accesses the address of the variable rather than the value that it holds. So an example pointer declaration would look something like
+\begin{lstlisting}[style=CStyle]
+	int var;					// declaring a integer variable
+	int *var_ptr = &var;	// initialising a pointer-to-int with the address of var
+\end{lstlisting}
+
+The most common use for \textit{pointers} in the context of this course is using them in functions.
+
+
+\section*{Pointers and Functions}
+
+This relates to arrays in that \textbf{the name of an array without an index is a \textit{pointer} to the first value in the array}. That is, the following two \texttt{printf} statements of code are equivalent:
+\begin{lstlisting}[style=CStyle]
+	int array[2];		// declaring an array of int, length 2
+	printf("This is the address of array[0]: %lu\n", array);
+	printf("This is the address of array[0]: %lu\n", &array[0]);
+\end{lstlisting}
+
+When using arrays in functions, a pointer to the first value in the array and the array size are both required as separate arguments (inputs) to the function. Because \textbf{the function is using the address of the original array, when values in the array are changed in the function they are also updated in the main function}.
+
+\begin{lstlisting}[style=CStyle]
+	// either one of these is a valid function prototype
+	void example_function(int *array_name, int array_size)	
+	void example_function(int array_name[], int array_size)
+\end{lstlisting}
+
+
+\pagebreak
+
+\section*{Practice Programming}
+Some things to consider when using functions within your program:
+\begin{itemize}
+\item What \textit{arguments} (inputs) are there to the function? What are their data types?
+\item What is the \textit{return value} (output) of the function? What is its data type?
+\item Have I remembered to (correctly) include the \textit{function prototype} and the \textit{function definition}?
+\end{itemize}
+
+\begin{task}{Set array values to zero}{}
+	\begin{enumerate}
+	\item Write a C program to set all the values within an array to zero. Print the entire array to confirm your result.\\[6pt]
+	\item Modify the previous program to instead use a \textit{function} to set all the values to zero. The array should still be declared from within the main function.
+	\end{enumerate}
+\end{task}
+
+\end{document}
