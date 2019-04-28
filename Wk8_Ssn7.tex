@@ -33,32 +33,46 @@ A \textit{pointer} is a variable whose value is the address of another variable.
 \end{lstlisting}
 where \texttt{data\_type} is the base data type which the pointer is pointing at and \texttt{var\_ptr} is the name of the pointer variable.
 
-You have already seen \textit{pointers} before. Using a variable name with an ampersand (\texttt{\&}) before it accesses the address of the variable rather than the value that it holds. So an example pointer declaration would look something like
+You have already seen \textit{pointers} before when using \texttt{scanf}. Using a variable name with an ampersand (\texttt{\&}) before it accesses the address of the variable rather than the value that it holds. So an example pointer declaration would look something like:
 \begin{lstlisting}[style=CStyle]
-	int var;					// declaring a integer variable
-	int *var_ptr = &var;	// initialising a pointer-to-int with the address of var
+	int var  = 12;			// initialising an integer variable with the value 12
+	int *var_ptr = &var;	// initialising a pointer-to-int with the address of var,
+								// i.e. var_ptr is pointing at var
 \end{lstlisting}
+
+In the context of pointers, using a star (\texttt{*}) before a pointer variable name \textit{de-references} a pointer. \textit{De-referencing} is just jargon for saying "use the value of the variable located at the address being pointing at". \textbf{Continuing from the previous code segment}, here are some examples of \textit{pointer de-referencing}:
+\begin{lstlisting}[style=CStyle]
+	*var_ptr = 15;					// the value of var is now 15
+	(*var_ptr)++;					// increase the value of var by 1
+	*var_ptr = *var_ptr - 6;	// subtract 6 from var and store it at var
+	printf("The value of var is now: %d\n", *var_ptr);	// print what var_ptr is pointing at
+\end{lstlisting}
+
+For all intents and purposes, a \textit{de-referenced} pointer can be used anywhere that you would use a regular variable; it just makes it look a little bit more complicated.
 
 The most common use for \textit{pointers} in the context of this course is using them in functions.
 
 
 \section*{Pointers and Functions}
-
-This relates to arrays in that \textbf{the name of an array without an index is a \textit{pointer} to the first value in the array}. That is, the following two \texttt{printf} statements of code are equivalent:
-\begin{lstlisting}[style=CStyle]
-	int array[2];		// declaring an array of int, length 2
-	printf("This is the address of array[0]: %lu\n", array);
-	printf("This is the address of array[0]: %lu\n", &array[0]);
-\end{lstlisting}
-
-When using arrays in functions, a pointer to the first value in the array and the array size are both required as separate arguments (inputs) to the function. Because \textbf{the function is using the address of the original array, when values in the array are changed in the function they are also updated in the main function}.
+Functions in C can only \textit{return} at most one value back to where it was called, i.e. it can only modify one value at a time in the main function. To get around this, we can use pointers as arguments to functions. When pointers are sent to functions, we are sending the address of the original variable, so when we modify what the pointer is pointing at, we are actually modifying the original variable itself. The following code segment is a short example of using pointers in a function to modify the value of more than one variable.
 
 \begin{lstlisting}[style=CStyle]
-	// either one of these is a valid function prototype
-	void example_function(int *array_name, int array_size)	
-	void example_function(int array_name[], int array_size)
+	// my function with two pointers to int as input
+	void my_function(int *x, int *y);
+	
+	int main(void){
+		int a, b;
+		// calling my function and sending the address of two ints to the pointers
+		my_function(&a, &b);
+		printf("a: %d, b: %d\n", a, b); // confirming the values have changed
+		return 0;
+	}
+	void my_function(int *x, int *y){
+		*x = ??;		// here you would modify the values by
+		*y = ??;		// de-referencing the pointers
+		return;
+	}
 \end{lstlisting}
-
 
 \pagebreak
 
@@ -67,14 +81,21 @@ Some things to consider when using functions within your program:
 \begin{itemize}
 \item What \textit{arguments} (inputs) are there to the function? What are their data types?
 \item What is the \textit{return value} (output) of the function? What is its data type?
-\item Have I remembered to (correctly) include the \textit{function prototype} and the \textit{function definition}?
+\item Have I remembered to (correctly) include the \textit{function prototype} and the \textit{function definition}?\\
 \end{itemize}
 
-\begin{task}{Set array values to zero}{}
-	\begin{enumerate}
-	\item Write a C program to set all the values within an array to zero. Print the entire array to confirm your result.\\[6pt]
-	\item Modify the previous program to instead use a \textit{function} to set all the values to zero. The array should still be declared from within the main function.
-	\end{enumerate}
+\begin{task}{Swap Function Using Pointers}{}
+Write a C program that uses a function to swap the values of two int type variables. Your function should make use of pointers as function arguments to accomplish this task.
+\end{task}
+
+\begin{task}{Temperature Function}{}
+Write a C program that uses a function to convert a temperature in Celsius to both Kelvin and Fahrenheit. Your function should make use of pointers as function arguments to accomplish this task.
+\\[8pt]
+\boxed{F = \dfrac{9}{5}C + 32,  \hspace*{2cm} K = C + 273}
+\end{task}
+
+\begin{task}{Array Statistics}{}
+Write a C program that uses a function to calculate both the sum and average value of an array. Your function should make use of pointers as function arguments to accomplish this task.
 \end{task}
 
 \end{document}
