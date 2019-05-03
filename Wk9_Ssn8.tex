@@ -1,0 +1,104 @@
+\documentclass{pass}
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{soul}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{amsmath,amsfonts,amssymb} % For nice maths
+
+\title{ENGG1003 - PASS Session 8}
+\author{Mitchell Deltoer}
+\date{Week 9}
+
+\begin{document}
+\begin{minipage}[H]{0.6\textwidth}
+  \maketitle
+\end{minipage}
+\hfill
+\begin{minipage}[H]{0.35\textwidth}
+\textbf{
+\begin{tabular}{ccc}
+Monday & 14-15 & ES238 \\
+Wednesday & 12-13 & ES238 \\
+Thursday & 10-11 & MCLG42 \\
+\end{tabular}
+}
+\end{minipage}
+
+\section*{Multi-dimensional arrays}
+The simplest form of multidimensional array is the two-dimensional array. In essence a 2D array is a list of one-dimensional arrays. The following is an example of declaring a 2D array of size \texttt{[x][y]}: 
+\begin{lstlisting}[style=CStyle]
+	type arrayName [x][y];
+\end{lstlisting}
+where type is the array data type and arrayName is a valid C variable name. A 2D array can be considered as a table which will have \texttt{x} number of rows and \texttt{y} number of columns. A 2D array \texttt{a}, which contains three rows and four columns can be shown as follows
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth]{table.jpg}
+    \end{center}
+\end{figure}
+Thus, every element in the array \texttt{a} is identified by an element name of the form \texttt{a[i][j]}, where \texttt{a} is the name of the array, and \texttt{a} and \texttt{a} are the subscripts that uniquely identify each element in \texttt{a}.
+
+Multidimensional arrays may be initialized by specifying bracketed values for each row. The following initialises an array with 3 rows and each row has 4 columns
+\begin{lstlisting}[style=CStyle]
+	int a[3][4] = {  
+		{0, 1, 2, 3} ,   // initializers for row indexed by 0
+		{4, 5, 6, 7} ,   // initializers for row indexed by 1
+		{8, 9, 10, 11}   // initializers for row indexed by 2
+	};
+\end{lstlisting}
+The line breaks in the above code are just for readability and are not required.
+
+Just like with 1D arrays, an element in a 2D array is accessed by using the array indexes like so
+\begin{lstlisting}[style=CStyle]
+	int val = a[2][3];	// store the value 11 from the array in val
+\end{lstlisting}
+
+Like with 1D arrays, loops will be needed if you want to access each element of a 2D array. However, an additional nested loop is required for each additional dimension of the array, i.e. one nested loop for a 2D array. The following is an example of printing each value of the 2D array \texttt{a}
+\begin{lstlisting}[style=CStyle]
+   int i, j;
+   for ( i = 0; i < 3; i++ ) {		// loop for the row index
+      for ( j = 0; j < 4; j++ ) {	// loop for the column index
+         printf("a[%d][%d] = %d\n", i,j, a[i][j] );
+      }
+   }
+\end{lstlisting}
+
+\pagebreak
+
+\section*{Practice Programming}
+\begin{task}{2D Array Sum}{}
+Write a C program that finds the sum of all of the elements in a 2D array. Use the following initialisation for your initial testing.
+\begin{lstlisting}[style=CStyle]
+	int a[3][4] = {  
+		{0, 1, 2, 3} ,
+		{4, 5, 6, 7} ,   
+		{8, 9, 10, 11}   
+	};
+\end{lstlisting}
+
+\end{task}
+
+\begin{task}{Row Sum}{}
+Write a C program that finds the smallest number in each row of a 2D array. The result for each \textit{ith} row should be stored in the \textit{ith} element of a 1D array. Use the same initialisation as previous for initial testing.
+
+\end{task}
+
+\begin{task}{2D Matrix Inverse}{}
+\textbf{Note:} You won't have seen these words or concepts before but it's not necessary to complete this task.\\
+
+For a $2\times2$ matrix (2D array: 2 rows, 2 columns) $A$ defined as
+$$ A = \begin{bmatrix} a & b \\ c & d \end{bmatrix} $$
+the \textit{determinant} of the matrix $A$ can be calculated by
+$$ \text{det}(A) = ad-bc $$
+If the determinant is zero, the matrix is said to be \textit{non-invertible}, i.e. its \textit{inverse} does not exist. If the determinant is non-zero, the inverse of the matrix ($A^{-1}$) can be found with the formula
+$$ A^{-1} = \dfrac{1}{\text{det}(A)} \times \begin{bmatrix} d & -b \\ -c & a \end{bmatrix} $$
+	\begin{enumerate}
+	\item Write a C program that will calculate the determinant of a $2\times2$ matrix.\\
+	\item Expand on the previous program by calculating the inverse of the $2\times2$ matrix (only if it exists). If it does not exist, print a warning message to the user.
+	\end{enumerate}
+
+
+\end{task}
+
+\end{document}
