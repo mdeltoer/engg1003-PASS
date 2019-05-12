@@ -279,6 +279,24 @@
 	commentstyle=\color{mGreen}
 }
 
+\definecolor{MATLABKeyword}{rgb}{0,0,1}
+\definecolor{MATLABComment}{rgb}{0.1328125,0.54296875,0.1328125}
+\definecolor{MATLABString}{rgb}{0.625,0.125,0.9375}
+
+\lstdefinestyle{Matlab}{
+	language=Matlab,
+    basicstyle=\ttfamily,
+    keywordstyle=\color{MATLABKeyword},
+    backgroundcolor=\color{backgroundColour},
+    %identifierstyle=,
+    commentstyle=\color{MATLABComment},
+    stringstyle=\color{MATLABString},
+    numberstyle=\tiny,
+    numbers=left,
+    tabsize=3,
+    basewidth=0.5em
+}
+
 %\lstset{basicstyle=\ttfamily}
 %\lstset{framextopmargin=50pt,frame=bottomline}
 \lstset{captionpos=b,tabsize=2}

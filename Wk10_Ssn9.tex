@@ -1,0 +1,167 @@
+\documentclass{pass}
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{soul}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{amsmath,amsfonts,amssymb} % For nice maths
+
+\title{ENGG1003 - PASS Session 9}
+\author{Mitchell Deltoer}
+\date{Week 10}
+
+\begin{document}
+\begin{minipage}[H]{0.6\textwidth}
+  \maketitle
+\end{minipage}
+\hfill
+\begin{minipage}[H]{0.35\textwidth}
+\textbf{
+\begin{tabular}{ccc}
+Monday & 14-15 & ES238 \\
+Wednesday & 12-13 & ES238 \\
+Thursday & 10-11 & MCLG42 \\
+\end{tabular}
+}
+\end{minipage}
+
+\section*{MATLAB Basics}
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Command/Operation} & \textbf{Description} \\ \hline
+\texttt{help <function>} & displays the help for the function or keyword specified \\ \hline
+\texttt{doc <function>} & opens the reference page for the function or keyword specified \\ \hline
+\texttt{clear} & removes all variables from the \textit{workspace} \\ \hline
+\texttt{clc} & clears the \textit{command window}\\ \hline
+
+\end{tabular}
+\end{center}
+\begin{enumerate}[resume]
+\item Perform the following operations in Matlab and interpret the results/error message.\\ \\
+\begin{tabularx}{\textwidth}{XXX}
+(a) \texttt{1:1:10} & (b) \texttt{4:0.5:9} & (c) \texttt{1:10} \\ \\
+(d) \texttt{[1,2,3; 1,2]} & (e) \texttt{[3:-1:1,12:16]} & (f) \texttt{[4:7; 9:12]} \\ \\
+(g) \texttt{[2:0.5:4; 1:4]} & (h) \texttt{linspace(1,20,500)} & (i) \texttt{linspace(15,10,1e3)} \\ \\
+\end{tabularx}
+
+\item \label{q:define}Create the following vectors/matrices in Matlab.\\
+\begin{tabularx}{\textwidth}{XX}
+(a) $a = \left[ {\begin{array}{cc}
+		 1 & 2 \\
+	\end{array} } \right]$ & 
+(b) $b = \left[ {\begin{array}{cc}
+		 3 & 4 \\
+	\end{array} } \right]$ \\ \\
+(c) $c = \left[ {\begin{array}{c}
+		 2 \\
+		 5 \\
+	\end{array} } \right]$ & 
+(d) $d = \left[ {\begin{array}{c}
+		 1 \\
+		 -6 \\
+	\end{array} } \right]$\\ \\
+(e) $e = \left[ {\begin{array}{cc}
+		 3/5 & 4 \\
+		 6 & -2 \\
+	\end{array} } \right]$ & 
+(f) $f = \left[ {\begin{array}{cc}
+		 -5 & 0.4 \\
+		 7 & -2.6 \\
+	\end{array} } \right]$
+\end{tabularx}
+
+\item Using the array definitions from question \ref{q:define}, perform the following operations in Matlab and interpret the results/error message.\\ \\
+\begin{tabularx}{\textwidth}{XXX}
+(a) \texttt{A = a+b} & (b) \texttt{B = c-d} & (c) \texttt{C = e.*f} \\ \\
+(d) \texttt{D = d./c} & (e) \texttt{E = 6*a} & (f) \texttt{F = a+[1,2,3]} \\ \\
+(g) \texttt{G = 2*b+3} & (h) \texttt{H = e/2} & (i) \texttt{I = [a;b]+e} \\ \\
+(j) \texttt{J = 2*[c d]-f} & (k) \texttt{K = a*b} & (l) \texttt{L = a.*b} \\ \\
+(m) \texttt{M = b\^{}2} & (n) \texttt{N = b.\^{}2} &  \\ \\
+\end{tabularx}
+\end{enumerate}
+
+\section*{Array Indexing}
+\begin{enumerate}[resume]
+\item Create the following vector in Matlab.\\
+$$Y = \left[ {\begin{array}{cccccccccc}
+ 	11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 \\
+\end{array} } \right]$$
+\item Perform the following commands in Matlab and interpret the results.\\
+\begin{tabularx}{\textwidth}{XXX}
+(a) \texttt{A = Y(1)} & 
+(b) \texttt{B = Y(6)} &
+(c) \texttt{C = Y([2 4 9])} \\ \\
+(d) \texttt{D = Y(5:end)} &
+(e) \texttt{E = X([3:7 9])} &
+(f) \texttt{F = X([1:3 5:9])} \\ \\
+ \end{tabularx}
+\pagebreak
+\item Create the following matrix in Matlab.
+$$X = \left[ {\begin{array}{cccc}
+ 	1 & 2 & 3 & 4 \\
+ 	5 & 6 & 7 & 8 \\
+	9 & 10 & 11 & 12 \\
+	13 & 14 & 15 & 16 \\
+\end{array} } \right]$$
+\item Perform the following commands in Matlab and interpret the results.\\
+\begin{tabularx}{\textwidth}{XXX}
+(a) \texttt{A = X(:,1)} & 
+(b) \texttt{B = X([1 3],:)} &
+(c) \texttt{C = X(1:3,4)} \\ \\
+(d) \texttt{D = X(3,3:4)} &
+(e) \texttt{E = X(2:4,2:4)} &
+(f) \texttt{F = X(1)} \\ \\
+(g) \texttt{G = X(3)} &
+(h) \texttt{G = X(10)} &
+(i) \texttt{H = X(1,4)} \\ \\
+(j) \texttt{I = X(4,[2 4])} &
+(k) \texttt{K = X(:,:)} &
+(l) \texttt{L = X(:)} \\ \\
+(m) \texttt{M = X(1,end)} &
+(n) \texttt{N = X(end,end)} &
+\end{tabularx}
+\end{enumerate}
+
+\section*{Plotting}
+\textit{Hint: The} \texttt{help} \textit{and} \texttt{doc} \textit{commands are your friends when encountering unknown functions.}
+\begin{enumerate}[resume]
+	\item 
+	\begin{enumerate}
+		\item Create a Matlab \textit{script} file called `\texttt{passWk10-plot.m}'.\\
+		
+		\item Using the \texttt{plot} command, write a Matlab script that:
+		\begin{enumerate}
+			\item Plots a single vector \texttt{Y = [2,5,3,2,1]}.
+			\item Plots the vector \texttt{Y} on y-axis against the vector \texttt{X = 0:0.5:2} on the x-axis.\\
+		\end{enumerate}
+		
+		\item Using the relevant commands, add a \textbf{title} (\texttt{title}), axis \textbf{labels} (\texttt{xlabel, ylabel}) and a \textbf{grid} (\texttt{grid}) to the previous figure.\\
+		
+		\item Using the \texttt{axis} command, write Matlab code that will change the axis scale to $-5 \leq x \leq 5$ and $0 \leq y \leq 10$.\\
+		
+		\item Using the \texttt{hold} command, write Matlab code that will plot the vectors \texttt{X} vs \texttt{Y} and the vectors \texttt{A} vs \texttt{B} on the same plot. Additionally, make one one of the plots a \textbf{dashed red line} and the other a \textbf{solid green line} to distinguish them.\\
+		
+	\end{enumerate}
+	\item \textbf{In a new figure} using the \texttt{subplot} command, write Matlab code that will create a 2x1 matrix of plots, with \texttt{X} vs \texttt{Y} on the first plot and \texttt{A} vs \texttt{B} on the second plot.
+\end{enumerate}
+
+\section*{\texttt{for} loops}
+\begin{enumerate}[resume]
+\item
+	\begin{enumerate}
+	\item Create a Matlab \textit{script} file called `\texttt{passWk10-loop.m}'.\\
+	
+	\item Using a \texttt{for} loop, write Matlab script that outputs each element of a 1D vector to the command window. You may use the following template.
+	\end{enumerate}
+\end{enumerate}
+\begin{lstlisting}[style=Matlab]
+x = 1:10; % defining the vector, you can change this
+
+for % TODO: intialise the loop
+	% TODO: complete the task
+end
+\end{lstlisting}
+
+\end{document}
